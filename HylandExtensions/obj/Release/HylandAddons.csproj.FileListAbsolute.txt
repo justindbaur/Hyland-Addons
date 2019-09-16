@@ -1,0 +1,9 @@
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\bin\Release\Hyland.Unity.dll
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\bin\Release\Hyland.Types.dll
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\bin\Release\Security.Cryptography.dll
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\obj\Release\HylandAddons.csproj.CoreCompileInputs.cache
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\obj\Release\HylandAddons.csproj.CopyComplete
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\bin\Release\HylandAddons.dll
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\bin\Release\HylandAddons.pdb
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\obj\Release\HylandAddons.dll
+C:\Users\US170928\source\repos\HylandExtensions\HylandExtensions\obj\Release\HylandAddons.pdb
