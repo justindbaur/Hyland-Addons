@@ -54,6 +54,7 @@
     <Compile Include="AttributeValueHelper.cs" />
     <Compile Include="Common\Enumerators.cs" />
     <Compile Include="Exceptions\InvalidStringAddress.cs" />
+    <Compile Include="FilterHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Attributes\WorkViewAttributeAddressAttribute.cs" />
     <Compile Include="WorkViewObjectConvert.cs" />
