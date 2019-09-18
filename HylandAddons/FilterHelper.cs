@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hyland.Unity.WorkView;
+﻿using Hyland.Unity.WorkView;
 
 namespace HylandAddons
 {
@@ -169,7 +164,7 @@ namespace HylandAddons
         /// <param name="dottedAddress">The desired string address that constraints should be added to</param>
         /// <param name="wvOperator">The operator to be used between the address and value</param>
         /// <param name="values">The values that should be used for the grouping</param>
-        public static void AddGroupedConstraints(this ModifiableFilterQuery query,  string dottedAddress, Operator wvOperator, params double[] values)
+        public static void AddGroupedConstraints(this ModifiableFilterQuery query, string dottedAddress, Operator wvOperator, params double[] values)
         {
             // If no values given, add not constraints and return
             if (values.Length == 0) return;
