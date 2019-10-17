@@ -188,5 +188,12 @@ namespace HylandAddons
             // Add final constraint with a closing parenthesis and an And connector (design decision)
             query.AddConstraint(dottedAddress, wvOperator, values[values.Length - 1], Connector.AndConnector, Grouping.CloseParenthesis);
         }
+
+        public static void ConstrainToParent(this ModifiableFilterQuery query, Hyland.Unity.WorkView.Object parent)
+        {
+            var parentAttribute = query.Class.Attributes.Find(attr => attr.RelatedClass?.ID == parent.Class.ID);
+
+            query.AddConstraint($"{ parentAttribute.Name }.objectid", Operator.Equal, parent.ID);
+        }
     }
 }
