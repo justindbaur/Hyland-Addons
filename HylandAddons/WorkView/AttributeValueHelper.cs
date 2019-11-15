@@ -110,7 +110,7 @@ namespace HylandAddons
             return attributeValue.GetNullableDoubleValue() ?? default(double);
         }
 
-        
+
 
         public static T GetValue<T>(this AttributeValue attributeValue)
         {
