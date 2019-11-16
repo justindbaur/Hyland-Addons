@@ -1,11 +1,15 @@
-﻿using System.Linq;
+﻿using Hyland.Unity.WorkView;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System;
 
 namespace HylandAddons
 {
     public class AttributeAddress
     {
         #region Fields
-        private string[] addressArray;
+        private List<string> addressPath;
 
         private const char onbaseSplitChar = '.';
         #endregion
@@ -13,32 +17,48 @@ namespace HylandAddons
         #region Constructors
         public AttributeAddress(string address)
         {
-            addressArray = address.Split(SplitChar);
+            if (address == null)
+            {
+                throw new ArgumentNullException(nameof(address));
+            }
+
+            addressPath = address.Split(onbaseSplitChar).ToList();
         }
 
         public AttributeAddress(params string[] addresses)
         {
-            addressArray = addresses;
+            if (addresses == null)
+            {
+                throw new ArgumentNullException(nameof(addresses));
+            }
+
+            addressPath = addresses.ToList();
         }
         #endregion
 
         #region Properties
-        public static char SplitChar { get; set; } = '.';
-
         /// <summary>
         /// By default true, if set to false, any attribute attempted to be found using this object will throw it's given exception
         /// </summary>
+        [DefaultValue(true)]
         public bool IgnoreErrors { get; set; } = true;
 
-        public int Depth => (addressArray?.Length ?? 0) - 1;
+        public int Depth => (addressPath?.Count ?? 0) - 1;
 
-        public string FinalAttribute => addressArray[addressArray.Length - 1];
+        public string FinalAttribute => addressPath[addressPath.Count - 1];
 
-        public string AttributePath => string.Join(onbaseSplitChar.ToString(), addressArray.Take(addressArray.Length - 1).ToArray());
+        public string NavigationPath => Depth > 1 ? string.Join(onbaseSplitChar.ToString(), addressPath.GetRange(0, addressPath.Count - 1)) : null;
+
+        public string FullPath => string.Join(onbaseSplitChar.ToString(), addressPath);
 
         public override string ToString()
         {
-            return string.Join(onbaseSplitChar.ToString(), addressArray);
+            return string.Join(onbaseSplitChar.ToString(), addressPath);
+        }
+
+        public AttributeValue GetAttributeValue(Hyland.Unity.WorkView.Object wvObject)
+        {
+            return wvObject.AttributeValueByAddress(this);
         }
         #endregion
     }

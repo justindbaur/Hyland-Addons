@@ -38,11 +38,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hyland.Unity, Version=18.0.1.43, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Hyland\Unity Client\Hyland.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\InvoiceXMessage.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="AttributeAddressTests.cs" />
     <Compile Include="WorkViewAttributeAttributeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

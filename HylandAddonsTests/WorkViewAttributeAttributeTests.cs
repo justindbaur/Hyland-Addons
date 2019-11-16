@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HylandAddons.WorkView;
+using Hyland.Unity;
+using WorkView = Hyland.Unity.WorkView;
 
 namespace HylandAddonsTests
 {
@@ -12,7 +14,7 @@ namespace HylandAddonsTests
         {
             var ageProperty = typeof(Person).GetProperty("Age");
 
-            Assert.AreEqual("Parent.Age", WorkViewAttributeAttribute.GetAddress(ageProperty));
+            Assert.AreEqual("Parent.Age", WorkViewAttributeAttribute.GetStringAddress(ageProperty));
         }
 
         [TestMethod]
@@ -20,7 +22,7 @@ namespace HylandAddonsTests
         {
             var nameProperty = typeof(Person).GetProperty("Name");
 
-            Assert.AreEqual("Name", WorkViewAttributeAttribute.GetAddress(nameProperty));
+            Assert.AreEqual("Name", WorkViewAttributeAttribute.GetStringAddress(nameProperty));
         }
 
         [TestMethod]
@@ -53,6 +55,31 @@ namespace HylandAddonsTests
             var nameProperty = typeof(Person).GetProperty("Name");
 
             Assert.IsFalse(WorkViewAttributeAttribute.IsOptional(nameProperty));
+        }
+
+        [TestMethod]
+        public void SerializeObject()
+        {
+            long testObjectId = 8163157;
+
+            using (var app = Application.Connect(Application.CreateOnBaseAuthenticationProperties(
+                "https://obadm.ufpi.com/justin/service.asmx",
+                "US170928", 
+                "lj23&kl&ki@CleCavs", 
+                "OBSERVER")))
+            {
+                var wvObject = app.WorkView.Applications.Find("APA").Classes.Find("InvoiceXMessage").GetObjectByID(testObjectId);
+
+
+                var invoiceXMessage = WorkViewObjectConvert.DeserializeWorkViewObject<InvoiceXMessage>(wvObject);
+
+                var invoiceObject = wvObject.GetRelatedObject("LinkToInvoice");
+                var messageObject = wvObject.GetRelatedObject("LinkToMessage");
+
+
+                Assert.AreEqual(wvObject.AttributeValues.Find("IsHandled").BooleanValue, invoiceXMessage.IsHandled);
+                Assert.AreEqual(invoiceObject.AttributeValues.Find("InvoiceNum").AlphanumericValue, invoiceXMessage.InvoiceNum);
+            }
         }
     }
 }

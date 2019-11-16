@@ -12,13 +12,13 @@ namespace HylandAddons.WorkView
             // Create new instance of the desired object, item must have a constructor that takes 0 arguments
             var newItem = Activator.CreateInstance(typeof(T));
 
-            var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.SetProperty).Where(prop => WorkViewAttributeAttribute.IsDefined(prop));
+            var properties = typeof(T).GetProperties().Where(prop => WorkViewAttributeAttribute.IsDefined(prop));
 
             // Loop through properties
             foreach (var prop in properties)
             {
                 // Initialize string address 
-                string stringAddress = WorkViewAttributeAttribute.GetAddress(prop);
+                string stringAddress = WorkViewAttributeAttribute.GetStringAddress(prop);
 
                 // Try and get a value by the address
                 var attributeValue = wvObject.AttributeValueByAddress(stringAddress);
@@ -44,6 +44,13 @@ namespace HylandAddons.WorkView
 
             // Return item
             return (T)newItem;
+        }
+
+        public static void SerializeObject<T>(Hyland.Unity.WorkView.Object wvObject, T item)
+        {
+            var avm = wvObject.CreateAttributeValueModifier();
+
+
         }
     }
 }
