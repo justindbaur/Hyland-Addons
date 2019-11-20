@@ -25,11 +25,11 @@ namespace HylandAddons
                     return wvObject.AttributeValues.Find(address.FinalAttribute);
                 }
 
-                var relatedObject = wvObject.GetRelatedObject(address.AttributePath);
+                var relatedObject = wvObject.GetRelatedObject(address.NavigationPath);
 
                 if (relatedObject == null)
                 {
-                    throw new InvalidOperationException($"Could not find a related object by string { address.AttributePath } on object { wvObject.Name }");
+                    throw new InvalidOperationException($"Could not find a related object by string { address.NavigationPath } on object { wvObject.Name }");
                 }
 
                 return relatedObject.AttributeValues.Find(address.FinalAttribute);

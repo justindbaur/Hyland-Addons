@@ -47,7 +47,7 @@ namespace HylandAddons
 
         public string FinalAttribute => addressPath[addressPath.Count - 1];
 
-        public string NavigationPath => Depth > 1 ? string.Join(onbaseSplitChar.ToString(), addressPath.GetRange(0, addressPath.Count - 1)) : null;
+        public string NavigationPath => Depth > 0 ? string.Join(onbaseSplitChar.ToString(), addressPath.GetRange(0, addressPath.Count - 1)) : null;
 
         public string FullPath => string.Join(onbaseSplitChar.ToString(), addressPath);
 

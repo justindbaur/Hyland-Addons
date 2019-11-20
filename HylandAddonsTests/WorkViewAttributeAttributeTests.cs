@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Specialized;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HylandAddons.WorkView;
 using Hyland.Unity;
 using WorkView = Hyland.Unity.WorkView;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace HylandAddonsTests
 {
@@ -63,10 +65,10 @@ namespace HylandAddonsTests
             long testObjectId = 8163157;
 
             using (var app = Application.Connect(Application.CreateOnBaseAuthenticationProperties(
-                "https://obadm.ufpi.com/justin/service.asmx",
-                "US170928", 
-                "lj23&kl&ki@CleCavs", 
-                "OBSERVER")))
+                ConfigurationManager.AppSettings["ServiceUrl"],
+                ConfigurationManager.AppSettings["LoginUsername"],
+                ConfigurationManager.AppSettings["LoginPassword"], 
+                ConfigurationManager.AppSettings["Datasource"])))
             {
                 var wvObject = app.WorkView.Applications.Find("APA").Classes.Find("InvoiceXMessage").GetObjectByID(testObjectId);
 

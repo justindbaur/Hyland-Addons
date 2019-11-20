@@ -28,7 +28,7 @@ namespace HylandAddonsTests
         {
             var attributeAddress = new AttributeAddress("Item", "Thing", "Place");
 
-            Assert.AreEqual("Item.Thing", attributeAddress.AttributePath);
+            Assert.AreEqual("Item.Thing", attributeAddress.NavigationPath);
             Assert.AreEqual("Place", attributeAddress.FinalAttribute);
         }
     }
