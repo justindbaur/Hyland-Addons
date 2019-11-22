@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace HylandAddons.WorkView
 {
@@ -46,11 +44,11 @@ namespace HylandAddons.WorkView
             return (T)newItem;
         }
 
-        public static void SerializeObject<T>(Hyland.Unity.WorkView.Object wvObject, T item)
-        {
-            var avm = wvObject.CreateAttributeValueModifier();
+        //public static void SerializeObject<T>(Hyland.Unity.WorkView.Object wvObject, T item)
+        //{
+        //    var avm = wvObject.CreateAttributeValueModifier();
 
 
-        }
+        //}
     }
 }

@@ -30,7 +30,7 @@ namespace HylandAddons.WorkView
 
         public static string GetStringAddress(MemberInfo propertyInfo)
         {
-           return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Address ?? propertyInfo.Name;
+            return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Address ?? propertyInfo.Name;
         }
 
         public static AttributeAddress GetAttributeAddress(PropertyInfo propertyInfo)

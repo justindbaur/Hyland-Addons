@@ -1,10 +1,10 @@
 ﻿using Hyland.Unity.WorkView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System;
 
-namespace HylandAddons
+namespace HylandAddons.WorkView
 {
     public class AttributeAddress
     {
@@ -51,11 +51,11 @@ namespace HylandAddons
 
         public string FullPath => string.Join(onbaseSplitChar.ToString(), addressPath);
 
-        public override string ToString()
-        {
-            return string.Join(onbaseSplitChar.ToString(), addressPath);
-        }
+        public override string ToString() => FullPath;
 
+        #endregion
+
+        #region Methods
         public AttributeValue GetAttributeValue(Hyland.Unity.WorkView.Object wvObject)
         {
             return wvObject.AttributeValueByAddress(this);
