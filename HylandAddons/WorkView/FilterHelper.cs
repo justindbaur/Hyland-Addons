@@ -189,7 +189,7 @@ namespace HylandAddons
             query.AddConstraint(dottedAddress, wvOperator, values[values.Length - 1], Connector.AndConnector, Grouping.CloseParenthesis);
         }
 
-        public static void ConstrainToParent(this ModifiableFilterQuery query, Hyland.Unity.WorkView.Object parent)
+        public static void ConstrainToParent(this ModifiableFilterQuery query, Object parent)
         {
             var parentAttribute = query.Class.Attributes.Find(attr => attr.RelatedClass?.ID == parent.Class.ID);
 
