@@ -21,7 +21,7 @@ namespace HylandAddons.WorkView
                 string stringAddress = WorkViewAttributeAttribute.GetStringAddress(prop);
 
                 // Try and get a value by the address
-                var attributeValue = wvObject.AttributeValueByAddress(stringAddress);
+                var attributeValue = wvObject?.AttributeValueByAddress(stringAddress);
 
                 // See if the value is marked as optional
                 var isOptional = WorkViewAttributeAttribute.IsOptional(prop);
