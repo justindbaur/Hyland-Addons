@@ -1,6 +1,5 @@
-﻿using System;
+﻿using HylandAddons.WorkView;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HylandAddons;
 
 namespace HylandAddonsTests
 {

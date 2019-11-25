@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace HylandAddons.Attributes
+namespace HylandAddons.WorkView
 {
-    [System.AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class IgnoreAttributeSerializationAttribute : System.Attribute { }
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public class IgnoreAttributeSerializationAttribute : Attribute { }
 }

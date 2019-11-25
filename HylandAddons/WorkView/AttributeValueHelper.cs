@@ -1,7 +1,8 @@
 ﻿using Hyland.Unity.WorkView;
+
 using System;
 
-namespace HylandAddons
+namespace HylandAddons.WorkView
 {
     public static class AttributeValueHelper
     {

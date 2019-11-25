@@ -1,16 +1,6 @@
 ﻿using System;
 
-namespace HylandAddons
+namespace HylandAddons.WorkView
 {
-    public enum WorkViewSerializationMode
-    {
-        OptOut,
-        OptIn
-    }
 
-    //[Flags]
-    //public enum WorkViewOption
-    //{
-    //    Optional
-    //}
 }

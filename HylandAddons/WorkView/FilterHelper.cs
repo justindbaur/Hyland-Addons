@@ -1,6 +1,6 @@
 ﻿using Hyland.Unity.WorkView;
 
-namespace HylandAddons
+namespace HylandAddons.WorkView
 {
     public static class FilterHelper
     {

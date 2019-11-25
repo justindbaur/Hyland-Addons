@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace HylandAddons.Attributes
+namespace HylandAddons.WorkView
 {
-    [System.AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class WorkViewClassNameAttribute : System.Attribute
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    public class WorkViewClassNameAttribute : Attribute
     {
         public string ClassName { get; }
 
