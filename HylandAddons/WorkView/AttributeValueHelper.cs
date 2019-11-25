@@ -13,6 +13,17 @@ namespace HylandAddons
         /// <returns></returns>
         public static AttributeValue AttributeValueByAddress(this Hyland.Unity.WorkView.Object wvObject, AttributeAddress address)
         {
+            if (wvObject is null)
+            {
+                throw new ArgumentNullException(nameof(wvObject));
+            }
+
+            if (address is null)
+            {
+                throw new ArgumentNullException(nameof(address));
+            }
+
+
             try
             {
                 if (address.Depth == -1)
@@ -34,14 +45,14 @@ namespace HylandAddons
 
                 return relatedObject.AttributeValues.Find(address.FinalAttribute);
             }
-            catch (Exception ex)
+            catch
             {
                 if (address.IgnoreErrors)
                 {
                     return null;
                 }
 
-                throw ex;
+                throw;
             }
         }
 
@@ -67,18 +78,33 @@ namespace HylandAddons
             return AttributeValueByAddress(wvObject, new AttributeAddress(addresses));
         }
 
-        public static string GetAlphanumericValue(this Hyland.Unity.WorkView.AttributeValue attributeValue)
+        public static string GetAlphanumericValue(this AttributeValue attributeValue)
         {
+            if (attributeValue is null)
+            {
+                throw new ArgumentNullException(nameof(attributeValue));
+            }
+
             return attributeValue.HasValue ? attributeValue.AlphanumericValue : null;
         }
 
-        public static long? GetNullableIntegerValue(this Hyland.Unity.WorkView.AttributeValue attributeValue)
+        public static long? GetNullableIntegerValue(this AttributeValue attributeValue)
         {
+            if (attributeValue is null)
+            {
+                throw new ArgumentNullException(nameof(attributeValue));
+            }
+
             return attributeValue.HasValue ? attributeValue.IntegerValue : default(long?);
         }
 
-        public static long GetIntegerValue(this Hyland.Unity.WorkView.AttributeValue attributeValue)
+        public static long GetIntegerValue(this AttributeValue attributeValue)
         {
+            if (attributeValue is null)
+            {
+                throw new ArgumentNullException(nameof(attributeValue));
+            }
+
             return attributeValue.GetNullableIntegerValue() ?? default(long);
         }
 

@@ -10,5 +10,8 @@ namespace HylandAddons
         {
             Address = address;
         }
+
+        public InvalidStringAddressException() : this("Unknown")
+        { }
     }
 }

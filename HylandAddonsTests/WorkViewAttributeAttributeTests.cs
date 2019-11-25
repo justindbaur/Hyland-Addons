@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Specialized;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Hyland.Unity;
 using HylandAddons.WorkView;
-using Hyland.Unity;
-using WorkView = Hyland.Unity.WorkView;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace HylandAddonsTests
@@ -67,10 +64,11 @@ namespace HylandAddonsTests
             using (var app = Application.Connect(Application.CreateOnBaseAuthenticationProperties(
                 ConfigurationManager.AppSettings["ServiceUrl"],
                 ConfigurationManager.AppSettings["LoginUsername"],
-                ConfigurationManager.AppSettings["LoginPassword"], 
+                ConfigurationManager.AppSettings["LoginPassword"],
                 ConfigurationManager.AppSettings["Datasource"])))
             {
                 var wvObject = app.WorkView.Applications.Find("APA").Classes.Find("InvoiceXMessage").GetObjectByID(testObjectId);
+
 
 
                 var invoiceXMessage = WorkViewObjectConvert.DeserializeWorkViewObject<InvoiceXMessage>(wvObject);

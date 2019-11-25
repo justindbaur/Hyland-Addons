@@ -23,14 +23,20 @@ namespace HylandAddons.WorkView
             Optional = optional;
         }
 
-        public static bool IsDefined(MemberInfo propertyInfo)
+        public static bool IsDefined(PropertyInfo propertyInfo)
         {
             return Attribute.IsDefined(propertyInfo, typeof(WorkViewAttributeAttribute));
         }
 
-        public static string GetStringAddress(MemberInfo propertyInfo)
+        public static string GetStringAddress(PropertyInfo propertyInfo)
         {
-           return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Address ?? propertyInfo.Name;
+            if (propertyInfo is null)
+            {
+                throw new ArgumentNullException(nameof(propertyInfo));
+            }
+
+
+            return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Address ?? propertyInfo.Name;
         }
 
         public static AttributeAddress GetAttributeAddress(PropertyInfo propertyInfo)
@@ -38,7 +44,7 @@ namespace HylandAddons.WorkView
             return new AttributeAddress(GetStringAddress(propertyInfo));
         }
 
-        public static bool IsOptional(MemberInfo propertyInfo)
+        public static bool IsOptional(PropertyInfo propertyInfo)
         {
             return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Optional ?? false;
         }

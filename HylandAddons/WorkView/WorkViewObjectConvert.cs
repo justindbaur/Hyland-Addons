@@ -38,19 +38,11 @@ namespace HylandAddons.WorkView
                     continue;
                 }
 
-
                 prop.SetValue(newItem, attributeValue.Value);
             }
 
             // Return item
             return (T)newItem;
-        }
-
-        public static void SerializeObject<T>(Hyland.Unity.WorkView.Object wvObject, T item)
-        {
-            var avm = wvObject.CreateAttributeValueModifier();
-
-
         }
     }
 }
