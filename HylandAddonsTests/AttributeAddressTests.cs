@@ -30,5 +30,7 @@ namespace HylandAddonsTests
             Assert.AreEqual("Item.Thing", attributeAddress.NavigationPath);
             Assert.AreEqual("Place", attributeAddress.FinalAttribute);
         }
+
+
     }
 }

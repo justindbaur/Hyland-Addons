@@ -4,27 +4,52 @@ using System.Reflection;
 
 namespace HylandAddons.WorkView
 {
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class WorkViewAttributeAttribute : Attribute
     {
-        public string Address { get; set; } = null;
+        #region Private fields
+        private readonly string _address = null;
+        private WorkViewAttributeModifiers _modifiers;
+        #endregion
 
-        [DefaultValue(false)]
-        public bool Optional { get; } = false;
+        #region Constructors
+        public WorkViewAttributeAttribute()
+        {
 
+        }
 
         public WorkViewAttributeAttribute(string address)
         {
-            Address = address;
+            _address = address;
         }
 
-        public WorkViewAttributeAttribute(bool optional = false)
+        public WorkViewAttributeAttribute(string address, WorkViewAttributeModifiers modifiers) : this(address)
         {
-            Optional = optional;
+            _modifiers = modifiers;
         }
 
+        #endregion
+
+        #region Properties
+        [DefaultValue(null)]
+        public string Address => _address;
+
+        [DefaultValue(WorkViewAttributeModifiers.None)]
+        public WorkViewAttributeModifiers Modifiers
+        {
+            get => _modifiers;
+            set => _modifiers = value;
+        }
+        #endregion
+
+        #region Static Helpers
         public static bool IsDefined(PropertyInfo propertyInfo)
         {
+            if (propertyInfo is null)
+            {
+                throw new ArgumentNullException(nameof(propertyInfo));
+            }
+
             return Attribute.IsDefined(propertyInfo, typeof(WorkViewAttributeAttribute));
         }
 
@@ -34,7 +59,6 @@ namespace HylandAddons.WorkView
             {
                 throw new ArgumentNullException(nameof(propertyInfo));
             }
-
 
             return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Address ?? propertyInfo.Name;
         }
@@ -46,7 +70,25 @@ namespace HylandAddons.WorkView
 
         public static bool IsOptional(PropertyInfo propertyInfo)
         {
-            return propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>()?.Optional ?? false;
+            if (!IsDefined(propertyInfo))
+            {
+                throw new InvalidOperationException(
+                    $"{ nameof(WorkViewAttributeAttribute) } is not defined on property { propertyInfo.Name } on type { propertyInfo.DeclaringType.Name }");
+            }
+
+            return (propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>().Modifiers & WorkViewAttributeModifiers.Optional) == WorkViewAttributeModifiers.Optional;
         }
+
+        public static bool IsKey(PropertyInfo propertyInfo)
+        {
+            if (!IsDefined(propertyInfo))
+            {
+                throw new InvalidOperationException(
+                    $"{ nameof(WorkViewAttributeAttribute) } is not defined on property { propertyInfo.Name } on type { propertyInfo.DeclaringType.Name }");
+            }
+
+            return (propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>().Modifiers & WorkViewAttributeModifiers.Key) == WorkViewAttributeModifiers.Key;
+        }
+        #endregion
     }
 }

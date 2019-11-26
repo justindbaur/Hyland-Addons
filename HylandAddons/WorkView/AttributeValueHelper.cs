@@ -118,7 +118,7 @@ namespace HylandAddons.WorkView
                 case AttributeType.Decimal:
                     return attributeValue.HasValue ? attributeValue.DecimalValue : default(decimal?);
                 default:
-                    throw new NotImplementedException("Invalid attribute type.");
+                    return null;
             }
         }
 

@@ -7,6 +7,13 @@ namespace HylandAddons.WorkView
 {
     public static class WorkViewObjectConvert
     {
+        /// <summary>
+        /// Create a custom type from a WorkView object so it can be used in an OOP manner
+        /// </summary>
+        /// <typeparam name="T">Type of the object that should be created from the WorkView object</typeparam>
+        /// <param name="wvObject">The WorkView object that contains the values to be used for Deserialization</param>
+        /// <returns></returns>
+        /// <exception cref="InvalidStringAddressException"></exception>
         public static T DeserializeWorkViewObject<T>(Hyland.Unity.WorkView.Object wvObject) where T : new()
         {
             // Create new instance of the desired object, item must have a constructor that takes 0 arguments
@@ -23,14 +30,11 @@ namespace HylandAddons.WorkView
                 // Try and get a value by the address
                 var attributeValue = wvObject?.AttributeValueByAddress(stringAddress);
 
-                // See if the value is marked as optional
-                var isOptional = WorkViewAttributeAttribute.IsOptional(prop);
-
                 // If the value could not be found or does not have a value
                 if (attributeValue == null || !attributeValue.HasValue)
                 {
-                    // If item is option, skip
-                    if (!isOptional)
+                    // If item is optional, skip
+                    if (!WorkViewAttributeAttribute.IsOptional(prop))
                     {
                         throw new InvalidStringAddressException(stringAddress);
                     }

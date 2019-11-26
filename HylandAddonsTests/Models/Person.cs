@@ -12,12 +12,12 @@ namespace HylandAddonsTests
         [WorkViewAttribute]
         public string Name { get; set; }
 
-        [WorkViewAttribute(Address = "Parent.Age")]
+        [WorkViewAttribute("Parent.Age")]
         public int Age { get; set; }
 
         public DateTime Birthday { get; set; }
 
-        [WorkViewAttribute(optional: true)]
+        [WorkViewAttribute(Modifiers = WorkViewAttributeModifiers.Optional)]
         public string BestfriendName { get; set; }
     }
 }
