@@ -9,11 +9,12 @@ namespace HylandAddons.WorkView
         AllDefinedAttributes
     }
 
+
     [Flags]
     public enum WorkViewAttributeModifiers
     {
-        None = 0,
-        Key = 1,
-        Optional = 2
+        None = 0b0000,
+        Key = 0b0001,
+        Optional = 0b0010
     }
 }

@@ -53,7 +53,8 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="AttributeAddressTests.cs" />
     <Compile Include="AttributeValueTests.cs" />
-    <Compile Include="ObjectEquatableTests.cs" />
+    <Compile Include="ObjectHelperTests.cs" />
+    <Compile Include="FilterHelperTests.cs" />
     <Compile Include="WorkViewAttributeAttributeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

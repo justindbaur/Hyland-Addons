@@ -8,7 +8,7 @@ using ConfigurationManager = System.Configuration.ConfigurationManager;
 namespace HylandAddonsTests
 {
     [TestClass]
-    public class ObjectEquatableTests
+    public class ObjectHelperTests
     {
         [TestMethod]
         public void MultiKeysEqual()
@@ -28,12 +28,11 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("GeneralLedgerAccount")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(glAccount, wvObject);
+                var result = wvObject.IsMatch(glAccount);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsTrue(result);
             }
-
         }
 
         [TestMethod]
@@ -54,7 +53,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("GeneralLedgerAccount")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(glAccount, wvObject);
+                var result = wvObject.IsMatch(glAccount);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsFalse(result);
@@ -78,7 +77,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(invoice, wvObject);
+                var result = wvObject.IsMatch(invoice);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsTrue(result);
@@ -102,7 +101,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(invoice, wvObject);
+                var result = wvObject.IsMatch(invoice);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsFalse(result);
@@ -128,7 +127,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(invoice, wvObject, WorkViewMatchType.NonOptional);
+                var result = wvObject.IsMatch(invoice, WorkViewMatchType.NonOptional);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsTrue(result);
@@ -154,7 +153,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(invoice, wvObject, WorkViewMatchType.NonOptional);
+                var result = wvObject.IsMatch(invoice, WorkViewMatchType.NonOptional);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsFalse(result);
@@ -180,7 +179,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(invoice, wvObject, WorkViewMatchType.NonOptional);
+                var result = wvObject.IsMatch(invoice, WorkViewMatchType.AllDefinedAttributes);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsTrue(result);
@@ -206,7 +205,7 @@ namespace HylandAddonsTests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
-                var result = ObjectEquatable.IsMatch(invoice, wvObject, WorkViewMatchType.NonOptional);
+                var result = wvObject.IsMatch(invoice, WorkViewMatchType.AllDefinedAttributes);
 
                 Assert.IsNotNull(wvObject);
                 Assert.IsFalse(result);

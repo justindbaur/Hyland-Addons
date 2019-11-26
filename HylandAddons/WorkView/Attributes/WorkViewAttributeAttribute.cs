@@ -9,7 +9,7 @@ namespace HylandAddons.WorkView
     {
         #region Private fields
         private readonly string _address = null;
-        private WorkViewAttributeModifiers _modifiers;
+        private WorkViewAttributeModifiers _modifiers = WorkViewAttributeModifiers.None;
         #endregion
 
         #region Constructors
