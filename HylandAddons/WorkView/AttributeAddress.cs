@@ -34,7 +34,8 @@ namespace HylandAddons.WorkView
 
             addressPath = addresses.ToList();
         }
-        #endregion
+
+#endregion
 
         #region Properties
         /// <summary>
@@ -53,13 +54,13 @@ namespace HylandAddons.WorkView
 
         public override string ToString() => FullPath;
 
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
         public AttributeValue GetAttributeValue(Hyland.Unity.WorkView.Object wvObject)
         {
             return wvObject.AttributeValueByAddress(this);
         }
-        #endregion
+#endregion
     }
 }
