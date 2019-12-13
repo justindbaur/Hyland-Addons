@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HylandAddons.WorkView;
+using UnityAddons.WorkView;
 
-namespace HylandAddonsTests
+namespace UnityAddons.Tests.TestObjects
 {
     public class Person
     {

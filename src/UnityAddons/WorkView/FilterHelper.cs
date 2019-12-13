@@ -1,7 +1,7 @@
 ﻿using Hyland.Unity.WorkView;
 using System;
 
-namespace HylandAddons.WorkView
+namespace UnityAddons.WorkView
 {
     public static class FilterHelper
     {

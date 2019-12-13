@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HylandAddons.WorkView
+namespace UnityAddons.WorkView
 {
     public class InvalidStringAddressException : Exception
     {

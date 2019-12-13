@@ -2,10 +2,10 @@
 using Hyland.Unity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
-using HylandAddons.WorkView;
+using UnityAddons.WorkView;
 using Hyland.Unity.WorkView;
 
-namespace HylandAddonsTests
+namespace UnityAddons.Tests
 {
     [TestClass]
     public class FilterHelperTests

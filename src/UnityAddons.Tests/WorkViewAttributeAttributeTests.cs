@@ -1,9 +1,9 @@
 ﻿using Hyland.Unity;
-using HylandAddons.WorkView;
+using UnityAddons.WorkView;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
-namespace HylandAddonsTests
+namespace UnityAddons.Tests
 {
     [TestClass]
     public class WorkViewAttributeAttributeTests

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace HylandAddons.WorkView
+namespace UnityAddons.WorkView
 {
     public class AttributeAddress
     {

@@ -2,7 +2,7 @@
 
 using System;
 
-namespace HylandAddons.WorkView
+namespace UnityAddons.WorkView
 {
     public static class AttributeValueHelper
     {

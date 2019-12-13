@@ -1,7 +1,7 @@
-﻿using HylandAddons.WorkView;
+﻿using UnityAddons.WorkView;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HylandAddonsTests
+namespace UnityAddons.Tests
 {
     [TestClass]
     public class AttributeAddressTests

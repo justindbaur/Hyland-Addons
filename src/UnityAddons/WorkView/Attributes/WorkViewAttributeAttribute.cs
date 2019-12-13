@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace HylandAddons.WorkView
+namespace UnityAddons.WorkView
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class WorkViewAttributeAttribute : Attribute

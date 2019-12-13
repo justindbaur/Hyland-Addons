@@ -1,11 +1,10 @@
-﻿using System;
-using Hyland.Unity;
-using HylandAddons.WorkView;
-using HylandAddonsTests.Models;
+﻿using Hyland.Unity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UnityAddons.Tests.TestObjects;
+using UnityAddons.WorkView;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
-namespace HylandAddonsTests
+namespace UnityAddons.Tests
 {
     [TestClass]
     public class ObjectHelperTests
