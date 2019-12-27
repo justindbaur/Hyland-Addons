@@ -38,10 +38,13 @@ namespace UnityAddons.WorkView
             return attributeValue.GetNullableIntegerValue() ?? default(long);
         }
 
+
         public static decimal? GetNullableDecimalValue(this Hyland.Unity.WorkView.AttributeValue attributeValue)
         {
+#pragma warning disable CA1062
             switch (attributeValue.Attribute.AttributeType)
             {
+#pragma warning restore CA1062
                 case AttributeType.Currency:
                     return attributeValue.HasValue ? attributeValue.CurrencyValue : default(decimal?);
                 case AttributeType.Decimal:

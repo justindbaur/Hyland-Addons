@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 
 namespace UnityAddons.WorkView
@@ -70,6 +72,12 @@ namespace UnityAddons.WorkView
 
         public static bool IsOptional(PropertyInfo propertyInfo)
         {
+            if (propertyInfo is null)
+            {
+                throw new ArgumentNullException(nameof(propertyInfo));
+            }
+
+
             if (!IsDefined(propertyInfo))
             {
                 throw new InvalidOperationException(
@@ -81,6 +89,11 @@ namespace UnityAddons.WorkView
 
         public static bool IsKey(PropertyInfo propertyInfo)
         {
+            if (propertyInfo is null)
+            {
+                throw new ArgumentNullException(nameof(propertyInfo));
+            }
+
             if (!IsDefined(propertyInfo))
             {
                 throw new InvalidOperationException(
@@ -88,6 +101,21 @@ namespace UnityAddons.WorkView
             }
 
             return (propertyInfo.GetCustomAttribute<WorkViewAttributeAttribute>().Modifiers & WorkViewAttributeModifiers.Key) == WorkViewAttributeModifiers.Key;
+        }
+
+        public static IEnumerable<PropertyInfo> GetKeys<T>()
+        {
+            return GetKeys(typeof(T));
+        }
+
+        public static IEnumerable<PropertyInfo> GetKeys(Type type)
+        {
+            if (type is null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            return type.GetProperties().Where(prop => IsDefined(prop) && IsKey(prop));
         }
         #endregion
     }

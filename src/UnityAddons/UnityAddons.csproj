@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Hyland.Unity">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Hyland\Unity Client\Hyland.Unity.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Hyland\Unity Client\Hyland.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="WorkView\AttributeAddress.cs" />
     <Compile Include="WorkView\Attributes\WorkViewAttributeAttribute.cs" />
+    <Compile Include="WorkView\Attributes\WorkViewSystemAttributeAttribute.cs" />
     <Compile Include="WorkView\AttributeValueHelper.cs" />
     <Compile Include="WorkView\Common\Enumerators.cs" />
     <Compile Include="WorkView\Exceptions\InvalidStringAddress.cs" />

@@ -14,12 +14,34 @@ namespace UnityAddons.WorkView
         /// <param name="wvObject">The WorkView object that contains the values to be used for Deserialization</param>
         /// <returns></returns>
         /// <exception cref="InvalidStringAddressException"></exception>
-        public static T DeserializeWorkViewObject<T>(Hyland.Unity.WorkView.Object wvObject) where T : new()
+        public static T DeserializeWorkViewObject<T>(Hyland.Unity.WorkView.Object wvObject)
         {
-            // Create new instance of the desired object, item must have a constructor that takes 0 arguments
-            var newItem = Activator.CreateInstance(typeof(T));
+            return (T)DeserializeWorkViewObject(wvObject, typeof(T));
+        }
 
-            var properties = typeof(T).GetProperties().Where(prop => WorkViewAttributeAttribute.IsDefined(prop));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wvObject"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static object DeserializeWorkViewObject(Hyland.Unity.WorkView.Object wvObject, Type type) where T : new()
+        {
+            if (wvObject is null)
+            {
+                throw new ArgumentNullException(nameof(wvObject));
+            }
+
+            if (type is null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            // Create new instance of the desired object, item must have a constructor that takes 0 arguments
+            var newItem = Activator.CreateInstance(type);
+
+            var properties = type.GetProperties().Where(prop => WorkViewAttributeAttribute.IsDefined(prop));
 
             // Loop through properties
             foreach (var prop in properties)
@@ -45,8 +67,76 @@ namespace UnityAddons.WorkView
                 prop.SetValue(newItem, attributeValue.Value);
             }
 
+            var systemProps = type.GetProperties().Where(prop => WorkViewSystemAttributeAttribute.IsDefined(prop));
+
+            foreach (var prop in systemProps)
+            {
+                object value = null;
+
+                switch (WorkViewSystemAttributeAttribute.GetSystemAttribute(prop))
+                {
+                    case WorkViewSystemAttribute.ID:
+                        value = wvObject.ID;
+                        break;
+                    case WorkViewSystemAttribute.CreatedDate:
+                        value = wvObject.CreatedDate;
+                        break;
+                    case WorkViewSystemAttribute.CreatedByID:
+                        value = wvObject.CreatedBy.ID;
+                        break;
+                    case WorkViewSystemAttribute.CreatedByName:
+                        value = wvObject.CreatedBy.Name;
+                        break;
+                    case WorkViewSystemAttribute.CreatedByRealName:
+                        value = wvObject.CreatedBy.RealName;
+                        break;
+                    case WorkViewSystemAttribute.CreatedByDisplayName:
+                        value = wvObject.CreatedBy.DisplayName;
+                        break;
+                    case WorkViewSystemAttribute.CreatedByEmailAddress:
+                        value = wvObject.CreatedBy.EmailAddress;
+                        break;
+                    case WorkViewSystemAttribute.RevisionDate:
+                        value = wvObject.RevisionDate;
+                        break;
+                    case WorkViewSystemAttribute.RevisionByID:
+                        value = wvObject.RevisionBy.ID;
+                        break;
+                    case WorkViewSystemAttribute.RevisionByName:
+                        value = wvObject.RevisionBy.Name;
+                        break;
+                    case WorkViewSystemAttribute.RevisionByRealName:
+                        value = wvObject.RevisionBy.RealName;
+                        break;
+                    case WorkViewSystemAttribute.RevisionByDisplayName:
+                        value = wvObject.RevisionBy.DisplayName;
+                        break;
+                    case WorkViewSystemAttribute.RevisionByEmailAddress:
+                        value = wvObject.RevisionBy.EmailAddress;
+                        break;
+                    case WorkViewSystemAttribute.ClassID:
+                        value = wvObject.Class.ID;
+                        break;
+                    case WorkViewSystemAttribute.ClassName:
+                        value = wvObject.Class.Name;
+                        break;
+                    case WorkViewSystemAttribute.BaseClassID:
+                        value = wvObject.BaseClassID;
+                        break;
+                    case WorkViewSystemAttribute.Name:
+                        value = wvObject.Name;
+                        break;
+                    default:
+                        continue;
+                }
+
+                prop.SetValue(newItem, value);
+            }
+
             // Return item
-            return (T)newItem;
+            return newItem;
         }
+
+
     }
 }

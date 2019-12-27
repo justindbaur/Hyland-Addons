@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 
 namespace UnityAddons.WorkView
@@ -48,19 +49,19 @@ namespace UnityAddons.WorkView
 
         public string FinalAttribute => addressPath[addressPath.Count - 1];
 
-        public string NavigationPath => Depth > 0 ? string.Join(onbaseSplitChar.ToString(), addressPath.GetRange(0, addressPath.Count - 1)) : null;
+        public string NavigationPath => Depth > 0 ? string.Join(onbaseSplitChar.ToString(CultureInfo.InvariantCulture), addressPath.GetRange(0, addressPath.Count - 1)) : null;
 
-        public string FullPath => string.Join(onbaseSplitChar.ToString(), addressPath);
+        public string FullPath => string.Join(onbaseSplitChar.ToString(CultureInfo.InvariantCulture), addressPath);
 
         public override string ToString() => FullPath;
 
 #endregion
 
-#region Methods
+        #region Methods
         public AttributeValue GetAttributeValue(Hyland.Unity.WorkView.Object wvObject)
         {
             return wvObject.AttributeValueByAddress(this);
         }
-#endregion
+        #endregion
     }
 }
