@@ -89,4 +89,18 @@ namespace UnityAddons.WorkView
         /// </summary>
         Name
     }
+
+    public enum InfoStatus
+    {
+        Ignore,
+        New,
+        Update,
+        Delete
+    }
+
+    public enum InsertionMode
+    {
+        Add,
+        Merge
+    }
 }

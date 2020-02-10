@@ -46,10 +46,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestObjects\GeneralLedgerAccount.cs" />
-    <Compile Include="TestObjects\Invoice.cs" />
-    <Compile Include="TestObjects\InvoiceXMessage.cs" />
-    <Compile Include="TestObjects\Person.cs" />
+    <Compile Include="Shared\GeneralLedgerAccount.cs" />
+    <Compile Include="Shared\Invoice.cs" />
+    <Compile Include="Shared\InvoiceXMessage.cs" />
+    <Compile Include="Shared\Person.cs" />
     <Compile Include="AttributeAddressTests.cs" />
     <Compile Include="AttributeValueTests.cs" />
     <Compile Include="ObjectHelperTests.cs" />

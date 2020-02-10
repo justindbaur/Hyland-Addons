@@ -26,7 +26,7 @@ namespace UnityAddons.WorkView
         /// <param name="wvObject"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object DeserializeWorkViewObject(Hyland.Unity.WorkView.Object wvObject, Type type) where T : new()
+        public static object DeserializeWorkViewObject(Hyland.Unity.WorkView.Object wvObject, Type type)
         {
             if (wvObject is null)
             {

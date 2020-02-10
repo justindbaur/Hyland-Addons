@@ -1,6 +1,6 @@
 ﻿using Hyland.Unity;
 using UnityAddons.WorkView;
-using UnityAddons.Tests.TestObjects;
+using UnityAddons.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 

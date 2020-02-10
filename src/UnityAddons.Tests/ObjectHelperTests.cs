@@ -1,6 +1,6 @@
 ﻿using Hyland.Unity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnityAddons.Tests.TestObjects;
+using UnityAddons.Tests.Shared;
 using UnityAddons.WorkView;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
@@ -178,9 +178,10 @@ namespace UnityAddons.Tests
 
                 var wvObject = app.WorkView.Applications.Find("APA")?.Classes.Find("POInvoice")?.GetObjectByID(objectId);
 
+                Assert.IsNotNull(wvObject);
+
                 var result = wvObject.IsMatch(invoice, WorkViewMatchType.AllDefinedAttributes);
 
-                Assert.IsNotNull(wvObject);
                 Assert.IsTrue(result);
             }
         }

@@ -11,9 +11,9 @@ namespace UnityAddons.WorkView
     [AttributeUsage(AttributeTargets.Property)]
     public class WorkViewSystemAttributeAttribute : Attribute
     {
-        private WorkViewSystemAttribute _systemAttribute = WorkViewSystemAttribute.ObjectId;
+        private WorkViewSystemAttribute _systemAttribute = WorkViewSystemAttribute.ID;
 
-        [DefaultValue(WorkViewSystemAttribute.ObjectId)]
+        [DefaultValue(WorkViewSystemAttribute.ID)]
         public WorkViewSystemAttribute SystemAttribute => _systemAttribute;
 
 
