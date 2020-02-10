@@ -1,6 +1,6 @@
 ﻿using UnityAddons.WorkView;
 
-namespace UnityAddons.Tests.TestObjects
+namespace UnityAddons.Tests.Shared
 {
     public class Invoice
     {

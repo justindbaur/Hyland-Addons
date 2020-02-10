@@ -124,5 +124,15 @@ namespace UnityAddons.WorkView
 
             return true;
         }
+
+        public static T ToClass<T>(this Hyland.Unity.WorkView.Object wvObject)
+        {
+            return (T)ToClass(wvObject, typeof(T));
+        }
+
+        public static object ToClass(this Hyland.Unity.WorkView.Object wvObject, Type type)
+        {
+            return WorkViewObjectConvert.DeserializeWorkViewObject(wvObject, type);
+        }
     }
 }
