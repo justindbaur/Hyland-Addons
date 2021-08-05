@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D651BEE1-3BD6-427E-85B3-3FE2708F943E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityAddons", "src\UnityAddons\UnityAddons.csproj", "{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Debug|x64.Build.0 = Debug|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Debug|x86.Build.0 = Debug|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Release|x64.ActiveCfg = Release|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Release|x64.Build.0 = Release|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Release|x86.ActiveCfg = Release|Any CPU
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{218CF3EA-90FA-4F75-BB3F-D1A467F07F45} = {D651BEE1-3BD6-427E-85B3-3FE2708F943E}
+	EndGlobalSection
+EndGlobal
